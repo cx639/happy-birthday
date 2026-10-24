@@ -1,0 +1,141 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* 改為靠下方對齊，讓文字留在畫面下半部 */
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    padding-bottom: 12vh; /* 調整這個數值可以控制離底部的距離 */
+}
+
+/* 統一由容器控制置中，避免絕對定位跑版 */
+#text-container {
+    position: absolute;
+    top: 63%; /* 數字越大越往下，數字越小越往上，可依畫面微調 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* 控制文字、提示、按鈕之間的間距 */
+    width: 75%;
+    text-align: center;
+    z-index: 10;
+}
+
+#text {
+    display: inline-block;
+    font-size: 2em;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #8c3b4f;
+    border-right: 0.1em solid white;
+    animation: cursor-blink 0.75s step-end infinite;
+}
+
+p#point {
+    font-size: 1em;
+    color: #ff6b8b;
+    transition: opacity 0.5s;
+    margin: 10px 0;
+}
+
+@keyframes cursor-blink {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+.fill-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 35px;
+    font-size: 24px;
+    color: #ff6b8b;
+    border: 2px solid #ff6b8b;
+    background: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: color 0.4s ease, transform 0.2s ease; 
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 107, 139, 0.2);
+    margin-top: 15px;
+}
+
+.fill-btn::before {
+    content: '';
+    position: absolute;
+    background-color: #ff6b8b;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.fill-btn:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.fill-btn:hover::before {
+    width: 100%;
+}
+button {
+    animation: point-text 2s linear infinite;
+}
+
+@keyframes cursor-blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #8c3b4f; }
+}
+
+.fill-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 35px;
+    font-size: 32px; /* 稍微調小一點，避免遮擋太多背景角色 */
+    color: #ff6b8b; /* 溫柔的粉紅色文字 */
+    border: 2px solid #ff6b8b; /* 粉色邊框 */
+    background: rgba(255, 255, 255, 0.85); /* 半透明白底，完美融入背景 */
+    cursor: pointer;
+    transition: color 0.4s ease, transform 0.2s ease; 
+    font-weight: bold;
+    border-radius: 50px; /* 膠囊圓角，更符合可愛風格 */
+    box-shadow: 0 4px 15px rgba(255, 107, 139, 0.2); /* 柔和的粉色陰影 */
+}
+
+.fill-btn::before {
+    content: '';
+    position: absolute;
+    background-color: #ff6b8b; /* 滑鼠移上去時填滿粉紅色 */
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.fill-btn:hover {
+    color: white;
+    animation: none;
+    opacity: 1;
+    transform: scale(1.05); /* 滑鼠移上去時微幅放大，更有互動感 */
+}
+
+.fill-btn:hover::before {
+    width: 100%;
+}
+
+
+/*開始與結為右邊的小棒子皆為透明，中間時為白色*/
+@keyframes point-text{
+	from,to{border-color: transparent;}
+	50%{border-color: #8c3b4f;}

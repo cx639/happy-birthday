@@ -1,0 +1,101 @@
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    padding-bottom: 12vh;
+}
+
+/* 容器絕對定位 */
+#text-container {
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 75%;
+    text-align: center;
+    z-index: 10;
+}
+
+#text-wrapper {
+    font-size: 2em;
+    margin: 0;
+    color: #8c3b4f;
+    white-space: pre-wrap; /* 支援 \n 換行 */
+}
+
+#text {
+    /* 純文字區塊 */
+}
+
+/* 獨立的光標樣式 */
+#cursor {
+    display: inline-block;
+    height: 1em;
+    border-right: 0.12em solid transparent; /* 用邊框當作光標 */
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: cursor-blink 0.75s step-end infinite;
+}
+
+/* 完全使用你指定的原始動畫邏輯 */
+@keyframes cursor-blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #8c3b4f; }
+}
+
+p#point {
+    font-size: 1em;
+    color: #ff6b8b;
+    transition: opacity 0.5s;
+    margin: 10px 0;
+}
+
+/* 下一頁按鈕樣式 */
+.fill-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 35px;
+    font-size: 28px;
+    color: #ff6b8b;
+    border: 2px solid #ff6b8b;
+    background: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    transition: color 0.4s ease, transform 0.2s ease; 
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 107, 139, 0.2);
+    margin-top: 15px;
+}
+
+.fill-btn::before {
+    content: '';
+    position: absolute;
+    background-color: #ff6b8b;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.fill-btn:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.fill-btn:hover::before {
+    width: 100%;
+}

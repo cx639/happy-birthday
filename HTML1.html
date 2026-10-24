@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="CSS.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html { 
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-image: url("圖片/小桃封.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        /* 覆蓋全域 p 的縮排，確保提示文字能完美置中 */
+        #point {
+            text-indent: 0;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container">
+        <h1 id='text'></h1>
+        <p id='point' style="opacity: 0;">點擊隨意處以繼續</p>
+        <button class="fill-btn" style="visibility: hidden;">點擊以進入下一頁</button>
+    </div>
+
+    <script src="JS.js"></script>
+</body>
+</html>
